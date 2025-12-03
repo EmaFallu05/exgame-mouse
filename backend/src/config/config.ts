@@ -16,18 +16,18 @@ interface IConfig {
   HOST: string;
   DB_URL: string;
   FRONTEND_APP: string;
+  JWT_SECRET: string;
 }
 
-// Funzione che valida e restituisce le variabili d'ambiente
 const getConfig = (): IConfig => {
   const config = {
     HOST: process.env["APP_HOST"] || "localhost",
     PORT: process.env["APP_PORT"] || "3000",
     DB_URL: process.env["MONGODB_URI"] || "mongodb://localhost:27017/exgame",
     FRONTEND_APP: process.env["FRONTEND_APP"] || "http://localhost:3000",
+    JWT_SECRET: process.env["JWT_SECRET"] || "",
   };
 
-  // Esempio di validazione: lancia un errore se una variabile cruciale non è definita
   if (!config.DB_URL) {
     throw new Error("DB_URL non è definita nelle variabili d'ambiente.");
   }
@@ -39,5 +39,4 @@ const getConfig = (): IConfig => {
   return config;
 };
 
-// Esporta la configurazione per un facile accesso da qualsiasi parte dell'applicazione
 export const config = getConfig();
