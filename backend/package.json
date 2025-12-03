@@ -4,7 +4,8 @@
   "description": "ITS - corso React, Nodejs, DB - 2025/26",
   "main": "index.ts",
   "scripts": {
-    "dev": "npx tsx --watch src/index.ts"
+    "dev": "npx tsx --watch src/index.ts",
+    "seed": "npx tsx seed/index.ts"
   },
   "type": "module",
   "repository": {
